@@ -43,11 +43,25 @@
 		margin: 1em auto;
 	}
 
+	button {
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		font-weight: 300;
+	}
+
+	button:hover {
+		filter: brightness(70%);
+	}
+
+	.backing {
+		background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+	}
+
 	@media (min-width: 480px) {
 		h1 {
 			font-size: 4em;
 		}
 	}
+
 
 
 </style>
@@ -56,4 +70,6 @@
 	<title>Make Posts</title>
 </svelte:head>
 
-<Main></Main>
+<div>
+	<Main></Main>
+</div>

@@ -45,21 +45,29 @@
   .sort-option {
     display: inline;
     padding: 0.2rem 2.5rem 0.2rem 2.5rem;
-    background-color: rgb(240, 240, 250);
-    border: 0;
+    background-color: rgb(255, 255, 255);
+    border: 0px solid grey;
     border-radius: 1rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
     font-size: large;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(122, 122, 122, 0.212);
+
   }
   .sort-option a {
     text-decoration: none;
   }
 
+  .sort-options {
+    background-color: none;
+  }
+
   .active {
+    box-shadow: 2px 2px 5px rgba(185, 128, 23, 0.212);
     background-color: rgb(255,62,0);
+    border: 0px;
     color: white;
   }
 </style>

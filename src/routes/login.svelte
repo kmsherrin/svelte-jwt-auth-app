@@ -34,10 +34,17 @@
     label {
         font-size: x-large;
         font-weight: 300;
+        margin-bottom: 1rem;
+    }
+    input {
+        margin-bottom: 1rem;
     }
     .form-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 20em;
     }
 
     .text-input {
@@ -72,22 +79,18 @@
     <p>You are already logged in</p>
 {:else}
 
-<h1>Log in </h1>
+<h1>Log In </h1>
 
 <form on:submit|preventDefault={handleLogin} method="post">
 
     <div class="form-wrapper">
-        <div class="row">
-            <label for="username">Username:</label>
-            <input class="text-input" id="username" type="text" bind:value={username} size=20 />
-        </div>
-        <div class="row">
-            <label for="password">Password:</label>
-            <input class="text-input" id="password" type="password" bind:value={password} size=20/>
-        </div>
+        <label for="username">Username:</label>
+        <input class="text-input" id="username" type="text" bind:value={username} size=20 />
+        <label for="password">Password:</label>
+        <input class="text-input" id="password" type="password" bind:value={password} size=20/>
 
         <div class="row">
-            <button class="submit" type="submit">Login</button>
+            <button class="submit" style="float: right;" type="submit">Login</button>
         </div>
     </div>
 

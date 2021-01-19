@@ -14,6 +14,14 @@
     export let post
   </script>
   
+  <style>
+    .story-content {
+      padding: 0.5rem 0.5rem 2rem 0.5rem;
+      word-spacing: unset;
+    }
+
+  </style>
+
   <svelte:head>
     <title>{post.title}</title>
   </svelte:head>

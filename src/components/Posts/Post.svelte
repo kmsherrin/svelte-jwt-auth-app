@@ -39,13 +39,25 @@
 </script>
 
 <style>
+  .glass {
+    background: white;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 2rem;
+    z-index: 2;
+    backdrop-filter: blur(2rem);
+    display: flex;
+  }
   .post-item {
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    margin: 0.7rem 0 0.7rem 0;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin: 1rem 0 1rem 0;
     background-color: rgb(255, 255, 255);
     border-radius: 0.3rem;
-
     font-size: large;
+    box-shadow: 2px 2px 5px rgba(122, 122, 122, 0.212);
   }
   .domain {
     border: 1px solid grey;
@@ -69,10 +81,10 @@
   }
 </style>
 
-<li class="post-item">
+<li class="post-item glass">
   <div class="layout-wrapper">
     <Voter score={post.score} on:upvote={upvote} />
-    
+
     <div class="main">
       <div class="details">
         <a class="title" href={link} rel="prefetch"> {post.title} </a>

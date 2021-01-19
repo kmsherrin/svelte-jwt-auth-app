@@ -25,7 +25,7 @@
   </script>
   
   <form
-    class="story-form"
+    class="post-form"
     on:submit|preventDefault="{submit}"
   >
     <input

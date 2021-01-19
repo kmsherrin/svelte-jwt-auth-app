@@ -10,6 +10,13 @@
     }
   </script>
   
+  <style>
+    .comment-list {
+      margin-top: 1rem;
+    }
+
+  </style>
+
   <CommentInput
     {postId}
     on:created="{({ detail }) => comments = [...comments, detail.comment]}"
