@@ -4,8 +4,6 @@
 	const { session } = stores();
 
 	import Main from '../components/Main.svelte';
-
-	import successkid from 'images/successkid.jpg';
 	
 	console.log($session.user)
 

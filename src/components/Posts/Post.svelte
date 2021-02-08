@@ -24,6 +24,8 @@
 
   $: ispostOwner = post.user._id === ($session.user && $session.user._id);
 
+  $: topCom = post.commentTop[0]
+
   function upvote() {
     post.score++;
     api.posts.upvotePost({ postId: post._id });
@@ -89,6 +91,11 @@
       <div class="details">
         <a class="title" href={link} rel="prefetch"> {post.title} </a>
         <span class="domain"> {domain} </span>
+        {#if inList && post.type === 'text'}
+        <p>
+          {post.contentStart}
+        </p>
+        {/if}
         {#if !inList && ispostOwner}
           <div class="post-actions">
             <a class="post-action-button" href={`post/${post._id}/edit`}>
@@ -102,9 +109,8 @@
       </div>
       <div class="byline">
         by
-        {post.user.username}
-        {date}
-        |
+        {post.user.username} ({post.user.postsCount})
+        {date} |
         <a class="comments-link" href={postLink} rel="prefetch">
           {commentsCountTitle}
         </a>

@@ -1,18 +1,16 @@
 <script>
 	import { goto, stores } from "@sapper/app";
 	const { session } = stores();
-
-	export let segment;
 	
+	export let segment;
+	export let isLoggedIn;
+
 	export function del_token() {
 		$session.token = null;
 		$session.user = null;
 		$session.logged_in = false;
 		goto("/");
 	}
-
-	$: isLoggedIn = $session.user;
-
 
 </script>
 
@@ -73,19 +71,17 @@
 		     the blog data when we hover over the link or tap it on a touchscreen -->
 		
 		{#if $session.user}
-		<li><a rel=prefetch aria-current="{segment === 'create' ? 'create' : undefined}" href="post/create">New Post</a></li>
+			<li><a rel=prefetch aria-current="{segment === 'create' ? 'create' : undefined}" href="post/create">New Post</a></li>
 
-		<li style="margin-left: auto;">
-			<a href=".">{$session.user.username}</a>
-		</li>
+			<li style="margin-left: auto;">
+				<a href=".">{$session.user.username}</a>
+			</li>
 
-		
-		<li><a rel=prefetch on:click={del_token} href=".">Logout</a></li>
-
+			<li><a rel=prefetch on:click={del_token} href=".">Logout</a></li>
 
 		{:else}
-		<li style="margin-left: auto;"><a rel=prefetch aria-current="{segment === 'signup' ? 'signup' : undefined}" href="signup">Sign Up</a></li>
-		<li><a rel=prefetch aria-current="{segment === 'login' ? 'login' : undefined}" href="login">Login</a></li>
+			<li style="margin-left: auto;"><a rel=prefetch aria-current="{segment === 'signup' ? 'signup' : undefined}" href="signup">Sign Up</a></li>
+			<li><a rel=prefetch aria-current="{segment === 'login' ? 'login' : undefined}" href="login">Login</a></li>
 		{/if}
 	</ul>
 
